@@ -11,69 +11,31 @@
     <link rel="shortcut icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
 </head>
 
-<body data-theme="dark" class="m-5">
-    <!-- Navbar with logo and link to /technologies -->
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <div class="navbar-item" href="/">
-                <a href="/"><img src="{% static 'images/logo.png' %}" alt=""></a>
-            </div>
-
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-                data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item">
-                    Home
-                </a>
-
-                <a class="navbar-item" href="/technologies">
-                    Technologies
-                </a>
-        </div>
-    </nav>
-    <header class="hero is-fullheight">
+<body data-theme="dark">
+    <header class="hero is-fullheight-with-navbar">
         <!-- TODO: Add pancakes falling animation -->
-        <div class="hero-body" style="padding-bottom: 25vh;">
+        <div class="hero-body">
             <div class="container has-text-centered">
-                <h1 class="title" style="font-size: 75px;">Welcome to Pancake!</h1>
+                <h1 class="title">Welcome to Pancake!</h1>
+            </div>
+            <!-- Enter your project idea here box -->
+            <div class="container box has-text-centered">
+                <h2 class="subtitle is-size-3">Enter your project idea here</h2>
+                <form id="project-form">
+                    <div class="field">
+                        <div class="control has-text-centered">
+                            <input class="input" type="text" id="project-idea" placeholder="Your brilliant idea goes here">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-warning" type="submit">Generate Tech Stack</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </header>
-    <main>
-        <section class="section">
-            <div class="container">
-                <div class="columns is-centered">
-                    <div class="column is-half">
-                        <form id="tech-stack-form" class="box">
-                            <div class="field">
-                                <label class="label" for="project-idea">Enter your project idea:</label>
-                                <div class="control">
-                                    <input class="input" type="text" id="project-idea" name="project-idea"
-                                        placeholder="Your innovative project idea">
-                                </div>
-                            </div>
-                            <div class="field">
-                                <div class="control container is-flex is-justify-content-center">
-                                    <button type="submit" class="button is-warning">Generate Tech Stack</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div id="generated-tech-stack"></div>
-            </div>
-        </section>
-    </main>
-    <footer>
-    </footer>
     <!-- Include JavaScript file -->
     <script src="{% static 'js/home.js' %}"></script>
 </body>
