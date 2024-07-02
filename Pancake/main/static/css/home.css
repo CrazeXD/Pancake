@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
+
+body {
+    font-family: "Dosis", sans-serif;
+}
+
+/* Custom CSS for animation */
+.hero-animate {
+    transition: transform 0.5s, opacity 0.5s;
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  
+  .form-animate {
+    transition: transform 0.5s, opacity 0.5s;
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
