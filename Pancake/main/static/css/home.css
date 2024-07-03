@@ -12,6 +12,7 @@
 }
 body {
   overflow: hidden !important;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -20,4 +21,9 @@ body {
 
 body::-webkit-scrollbar {
   display: none;
+}
+
+.narrow-input {
+  width: 50%; /* Adjust this value as needed */
+  margin: auto; /* Centers the input field */
 }
