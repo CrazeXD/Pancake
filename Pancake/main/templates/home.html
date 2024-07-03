@@ -15,24 +15,27 @@
     <header class="hero is-fullheight-with-navbar">
         <!-- TODO: Add pancakes falling animation -->
         <div class="hero-body">
-            <div class="container has-text-centered">
+            <div class="container has-text-centered is-size-4 m-5">
                 <h1 class="title">Welcome to Pancake!</h1>
+                <p>Pancake is a GPT based software that helps full-stack developers speed up their projects by finding the most appropriate tech stack for their project.</p>
             </div>
             <!-- Enter your project idea here box -->
             <div class="container box has-text-centered">
-                <h2 class="subtitle is-size-3">Enter your project idea here</h2>
-                <form id="project-form">
-                    <div class="field">
-                        <div class="control has-text-centered">
-                            <input class="input" type="text" id="project-idea" placeholder="Your brilliant idea goes here">
+                <h2 class="subtitle is-size-3 has-text-warning-light">Enter your project idea here...</h2>
+                <div class="is-flex is-flex-direction-column is-justify-content-center" style="height: 100%;"> <!-- Bulma Flexbox classes added -->
+                    <form id="project-form">
+                        <div class="field">
+                            <div class="control has-text-centered is-size-1">
+                                <input class="input" type="text" id="project-idea" placeholder="Your brilliant idea goes here">
+                            </div>
                         </div>
-                    </div>
-                    <div class="field">
-                        <div class="control">
-                            <button class="button is-warning" type="submit">Generate Tech Stack</button>
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-warning" type="submit">Generate Tech Stack</button>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </header>
