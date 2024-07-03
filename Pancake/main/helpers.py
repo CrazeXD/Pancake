@@ -14,7 +14,7 @@ def get_response(prompt, known_technologies):
     client = OpenAI(api_key=api_key)
     # Call the OpenAI API for GPT-3.5 Turbo with the system prompt and the full prompt
     response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4o",
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": full_prompt},
