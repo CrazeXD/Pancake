@@ -1,29 +1,33 @@
+/* Other CSS */
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
 .title {
-    font-family: "Dosis", sans-serif;
-    font-size: 75px;
+  font-family: "Dosis", sans-serif;
+  font-size: 75px;
 }
+
 .subtitle {
-    font-family: "Quicksand", sans-serif;
-    font-size: 30px;
-}
-body {
-  overflow: hidden !important;
-  scroll-behavior: smooth;
+  font-family: "Quicksand", sans-serif;
+  font-size: 30px;
 }
 
 body {
+  overflow: hidden !important;
+  scroll-behavior: smooth;
   -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
 }
 
 body::-webkit-scrollbar {
   display: none;
+  /* Safari and Chrome */
 }
 
 .narrow-input {
-  width: 50%; /* Adjust this value as needed */
-  margin: auto; /* Centers the input field */
+  width: 50%;
+  /* Adjust this value as needed */
+  margin: auto;
+  /* Centers the input field */
 }

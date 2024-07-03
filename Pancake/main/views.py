@@ -6,6 +6,5 @@ def home(request):
         technologies = request.POST['technology']
         prompt = request.POST['idea']
         response = helpers.get_response(prompt, technologies)
-        print(response)
         return render(request, 'home.html', {'response': response})
     return render(request, 'home.html')

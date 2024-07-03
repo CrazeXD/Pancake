@@ -12,17 +12,18 @@
 </head>
 
 <body data-theme="dark">
-    <div class="syrup-overlay"></div>
     <div class="hero is-fullheight" id="header">
         <div class="hero-body">
             <div class="container">
                 <div class="columns is-vcentered">
                     <div class="column">
-                        <img src="{% static 'images/pancakes.png' %}" alt="Pancakes" class="box p-2 has-background-warning-dark">
+                        <img src="{% static 'images/pancakes.png' %}" alt="Pancakes"
+                            class="box p-2 has-background-warning-dark">
                     </div>
                     <div class="column has-text-centered is-size-4">
                         <h1 class="title">Welcome to Pancake!</h1>
-                        <p>Pancake is a GPT based software that helps full-stack developers speed up their projects by finding
+                        <p>Pancake is a GPT based software that helps full-stack developers speed up their projects by
+                            finding
                             the most appropriate tech stack for their project.</p>
                     </div>
                 </div>
@@ -56,6 +57,7 @@
     </div>
     <!-- Use the django 'response' dictionary variable to list out the technologies -->
     <div class="container has-text-centered is-size-4">
+        {% if response %}
         <h2 class="subtitle is-size-3 has-text-warning-light">Recommended Tech Stack</h2>
         <div id="tech-stack">
             {% for tech in response %}
@@ -68,7 +70,19 @@
             </div>
             {% endfor %}
         </div>
+        {% endif %}
     </div>
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Pancake</strong> by <a href="http://github.com/CrazeXD">Rishabh Garg</a>. The source code is licensed
+            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC ANS 4.0</a>.
+          </p>
+        </div>
+      </div>
+    </footer>
     <!-- Include JavaScript file -->
     <script src="{% static 'js/home.js' %}"></script>
 </body>
