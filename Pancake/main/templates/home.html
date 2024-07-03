@@ -22,11 +22,16 @@
             <!-- Enter your project idea here box -->
             <div class="container box has-text-centered">
                 <h2 class="subtitle is-size-3 has-text-warning-light">Enter your project idea here...</h2>
-                <div class="is-flex is-flex-direction-column is-justify-content-center" style="height: 100%;"> <!-- Bulma Flexbox classes added -->
-                    <form id="project-form">
+                <div class="is-flex is-flex-direction-column is-justify-content-center" style="height: 100%;">
+                    <form id="project-form" method="post">
+                        {% csrf_token %}
                         <div class="field">
                             <div class="control has-text-centered is-size-1">
-                                <input class="input" type="text" id="project-idea" placeholder="Your brilliant idea goes here">
+                                <input class="input" type="text" id="project-idea" name="idea" placeholder="Your brilliant idea goes here">
+                            </div>
+                            <h3 class="subtitle is-size-3 has-text-warning-light">Do you want to work with any specific technologies?</h3>
+                            <div class="control has-text-centered is-size-1">
+                                <input class="input" type="text" id="project-technology" name="technology" placeholder="Your skills and technologies go here">
                             </div>
                         </div>
                         <div class="field">
@@ -39,6 +44,23 @@
             </div>
         </div>
     </header>
+    <!-- Use the django 'response' dictionary variable to list out the technologies -->
+    <div class="container has-text-centered is-size-4 m-5">
+        <h2 class="subtitle is-size-3 has-text-warning-light">Recommended Tech Stack</h2>
+        <div class="columns is-multiline is-centered" id="tech-stack">
+            {% for tech in response %}
+            <div class="column is-one-quarter">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="content">
+                            <h3 class="title is-4">{{ tech }}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
     <!-- Include JavaScript file -->
     <script src="{% static 'js/home.js' %}"></script>
 </body>

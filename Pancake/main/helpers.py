@@ -1,28 +1,30 @@
 from openai import OpenAI
 import os
 
-client = OpenAI(
-    # This is the default and can be omitted
-    api_key=os.environ.get("OPENAI_API_KEY"),
-)
+import pathlib
+api_key = pathlib.Path("main/info/api_key.txt").read_text().strip()
+client = OpenAI(api_key=api_key)
+# TODO: Fine-tune the prompt and the temperature for better results
+system_prompt = pathlib.Path("main/info/prompt.txt").read_text()
 
-def get_response(prompt):
+def get_response(prompt, known_technologies):
     full_prompt = f'''
-    Create a tech stack for the following project. Structure your response as the following.
-    Layer: Technology
-    Information about the technology
-
-    Here is an example, however, when you are creating the tech stack, make sure to include all the necessary technologies for the project.
-    Frontend: React
-    Backend: Django
-    Database: PostgreSQL
-
     IDEA: {prompt}
+    Known Technologies: {', '.join(known_technologies)}
     '''
 
-    response = client.complete(
-        engine="gpt-4o",
-        prompt=full_prompt,
-        max_tokens=200,
+    # Call the OpenAI API for GPT-3.5 Turbo with the system prompt and the full prompt
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": full_prompt},
+        ],
+        max_tokens=100,
+        temperature=1,
     )
-    return response.choices[0].text
+    response = response.choices[0].message.content
+    # Turn the response into a dictionary from a string where each new line is 'key: value'
+    response = response.split('\n')
+    response = [line.strip() for line in response if line]
+    return response
